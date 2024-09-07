@@ -1,0 +1,12 @@
+#!/bin/sh
+
+USAGE=$(cat <<-END
+menuentry 'Windows Boot Manager (on `findmnt --noheadings -o SOURCE /boot`)' {\n
+\tinsmod part_gpt\n
+\tinsmod fat\n
+\tsearch --no-floppy --fs-uuid --set=root `findmnt --noheadings -o UUID /boot`\n
+\tchainloader /EFI/VeraCrypt/DcsBoot.efi\n
+}\n
+END
+)
+echo -e $USAGE
