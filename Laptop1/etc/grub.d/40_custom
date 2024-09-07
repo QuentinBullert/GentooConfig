@@ -1,6 +1,6 @@
 #!/bin/sh
 
-USAGE=$(cat <<-END
+ENTRY=$(cat <<-END
 menuentry 'Windows Boot Manager (on `findmnt --noheadings -o SOURCE /boot`)' {\n
 \tinsmod part_gpt\n
 \tinsmod fat\n
@@ -9,4 +9,4 @@ menuentry 'Windows Boot Manager (on `findmnt --noheadings -o SOURCE /boot`)' {\n
 }\n
 END
 )
-echo -e $USAGE
+echo -e $ENTRY
